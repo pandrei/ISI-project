@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-
+app.get('/', routes.index);
 var dbManager = require('./dbManager').dbManager;
 var userManagerService = new dbManager(app);
 http.createServer(app).listen(app.get('port'), function(){
