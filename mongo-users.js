@@ -3,7 +3,7 @@ var Db = require('mongodb').Db;
 var Connection = require('mongodb').Connection;
 var Server = require('mongodb').Server;
 UserProvider = function(host, port) {
-  this.db = new Db('users', new Server(host, port));
+  this.db = new Db('users', new Server(host, port), {safe:false});
   this.db.open(function(){});
   this.fetchAllUsers = function(cb) {
     this.db.collection(usersTable, function(error, users) {
