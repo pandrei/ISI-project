@@ -4,5 +4,12 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+	var userProvider = req.app.get('userProvider');
+	userProvider.fetchAllUsers(function(error, users) {
+		if (error) {
+			res.send(error, 500);
+		} else {
+			res.render('index', { title: 'DB Manager', users:users });
+		}
+	});
 };
