@@ -1,7 +1,7 @@
 var mongoServer = 'localhost';
 var mongoPort = 27017;
 dbManager = function(app) {
-  var UserProvider = require('./userProvider-mongodb').UserProvider;
+  var UserProvider = require('./mongo-users').UserProvider;
   var userProvider = new UserProvider(mongoServer, mongoPort);
   app.get('/users', function(req, res) {
     userProvider.fetchAllUsers(function(error, users) {
