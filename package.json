@@ -1,0 +1,14 @@
+{
+	"name" : "ISI-mockup",
+	"version": "alpha",
+	"private": false,
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+	"express": ">=3.3.4",
+	"mongodb": "*",
+	"jade": 	"*",
+	"stylus":	"*"
+	}
+}
