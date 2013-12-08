@@ -2,6 +2,10 @@
 var CT = require('./modules/country-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
+var optslist = [
+			{short:"  " , name:"No"},
+			{short:"  " , name:"Yes"}
+			];
 
 module.exports = function(app) {
 
@@ -48,7 +52,7 @@ module.exports = function(app) {
 	    }   else{
 			res.render('home', {
 				title : 'Control Panel',
-				countries : CT,
+				countries : optslist,
 				udata : req.session.user
 			});
 	    }
@@ -92,7 +96,7 @@ module.exports = function(app) {
 	    }   else{
 			res.render('adduser', {
 			  title: 'Add user', 
-			  countries : CT });
+			  countries : optslist });
 	    }
 	});
 

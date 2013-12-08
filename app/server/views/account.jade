@@ -19,9 +19,9 @@ input(type='hidden', value= user._id)#userId
 				.controls
 					input#email-tf.input-xlarge(type='text', name='email', value= user.email)
 			#clist-cg.control-group
-				label.control-label(for='country-list') Location
+				label.control-label(for='optslist') Dept. Manager
 				.controls
-					select#country-list(name='country')
+					select#optslist(name='country')
 						each item in countries
 							option(selected=item.name == user.country)= item.name
 			hr
