@@ -82,6 +82,36 @@ module.exports = function(app) {
 		}
 	});
 	
+	// adding new user as an administrator user //
+	// TODO: MUST check if the user has the admin flag(Global admin) //
+
+		app.get('/adduser', function(req, res) {
+	    if (req.session.user == null){
+	// if user is not logged-in redirect back to login page //
+	        res.redirect('/');
+	    }   else{
+			res.render('signup', {
+			  title: 'Signup', 
+			  countries : CT });
+	    }
+	});
+
+		app.post('/adduser', function(req, res){
+		AM.addNewAccount({
+			name 	: req.param('name'),
+			email 	: req.param('email'),
+			user 	: req.param('user'),
+			pass	: req.param('pass'),
+			country : req.param('country')
+		}, function(e){
+			if (e){
+				res.send(e, 400);
+			}	else{
+				res.send('ok', 200);
+			}
+		});
+	});
+
 // creating new accounts //
 	
 	app.get('/signup', function(req, res) {
