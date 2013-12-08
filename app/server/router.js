@@ -53,7 +53,7 @@ module.exports = function(app) {
 			});
 	    }
 	});
-	
+
 	app.post('/home', function(req, res){
 		if (req.param('user') != undefined) {
 			AM.updateAccount({
@@ -103,7 +103,8 @@ module.exports = function(app) {
 			}
 		});
 	});
-
+// one time function called when app starts first time //
+//	it creates an admin account //
 	app.get('/init', function(req, res) {
 
 		AM.addNewAccount({
