@@ -18,12 +18,40 @@ input(type='hidden', value= user._id)#userId
 				label.control-label(for='email-tf') Email
 				.controls
 					input#email-tf.input-xlarge(type='text', name='email', value= user.email)
-			#clist-cg.control-group
+			
+			// Dept and Division user belongs to //
+
+			
+			#dept.control-group
+				label.control-label(for='optslist') Dept. Manager
+				.controls
+					select#optslist(name='country')
+						each item in depts
+							option(selected=item.name == user.country)= item.name
+			
+			#division.control-group
+				label.control-label(for='divslist') Division Manager
+				.controls
+					select#optslist(name='country')
+						each item in divions
+							option(selected=item.name == user.country)= item.name
+
+			
+			// Dept and Division user is admin to to //
+
+			#dept_admin.control-group
 				label.control-label(for='optslist') Dept. Manager
 				.controls
 					select#optslist(name='country')
 						each item in countries
 							option(selected=item.name == user.country)= item.name
+			#division_admin.control-group
+				label.control-label(for='optslist') Division Manager
+				.controls
+					select#optslist(name='country')
+						each item in countries
+							option(selected=item.name == user.country)= item.name
+
 			hr
 			p#sub2.subheading
 			#user-cg.control-group

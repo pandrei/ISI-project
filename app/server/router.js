@@ -2,10 +2,27 @@
 var CT = require('./modules/country-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
+
+
+// TODO: Move these away from here //
 var optslist = [
 			{short:"  " , name:"No"},
 			{short:"  " , name:"Yes"}
 			];
+var deptlist = [
+			{short:"  " , name:"Dummy Dept 1"},
+			{short:"  " , name:"Dummy Dept 2"},
+			{short:"  " , name:"Dummy Dept 3"},
+			{short:"  " , name:"Dummy Dept 4"}
+			];
+
+var divslist = [
+			{short:"  " , name:"Dummy Division 1"},
+			{short:"  " , name:"Dummy Division 2"},
+			{short:"  " , name:"Dummy Division 3"},
+			{short:"  " , name:"Dummy Division 4"}
+			];
+
 
 module.exports = function(app) {
 
@@ -53,6 +70,8 @@ module.exports = function(app) {
 			res.render('home', {
 				title : 'Control Panel',
 				countries : optslist,
+				depts : deptlist,
+				divions : divslist,
 				udata : req.session.user
 			});
 	    }
@@ -96,7 +115,9 @@ module.exports = function(app) {
 	    }   else{
 			res.render('adduser', {
 			  title: 'Add user', 
-			  countries : optslist });
+			  countries : optslist,
+			  divions : divslist,
+			  depts : deptlist });
 	    }
 	});
 
