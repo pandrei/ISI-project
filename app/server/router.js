@@ -83,7 +83,10 @@ module.exports = function(app) {
 				user 		: req.param('user'),
 				name 		: req.param('name'),
 				email 		: req.param('email'),
-				country 	: req.param('country'),
+				dpt         : req.param('dpt'),
+				division    : req.param('division'),
+				dpt_mgr     : req.param('dpt_mgr'),
+				dvs_mgr     : req.param('dvs_mgr'),
 				pass		: req.param('pass')
 			}, function(e, o){
 				if (e){
@@ -123,11 +126,14 @@ module.exports = function(app) {
 
 		app.post('/adduser', function(req, res){
 		AM.addNewAccount({
-			name 	: req.param('name'),
-			email 	: req.param('email'),
-			user 	: req.param('user'),
-			pass	: req.param('pass'),
-			country : req.param('country')
+			user 		: req.param('user'),
+			name 		: req.param('name'),
+			email 		: req.param('email'),
+			dpt         : req.param('dpt'),
+			division    : req.param('division'),
+			dpt_mgr     : req.param('dpt_mgr'),
+			dvs_mgr     : req.param('dvs_mgr'),
+			pass		: req.param('pass')
 		}, function(e){
 			if (e){
 				res.send(e, 400);

@@ -54,6 +54,9 @@ exports.manualLogin = function(user, pass, callback)
 
 exports.addNewAccount = function(newData, callback)
 {
+
+//debug stub TODO: remove it once issue #6 is closed //
+	console.log(newData);
 	accounts.findOne({user:newData.user}, function(e, o) {
 		if (o){
 			callback('username-taken');

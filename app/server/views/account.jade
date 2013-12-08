@@ -27,14 +27,14 @@ input(type='hidden', value= user._id)#userId
 				.controls
 					select#optslist(name='country')
 						each item in depts
-							option(selected=item.name == user.country)= item.name
+							option(selected=item.name == user.dpt)= item.name
 			
 			#division.control-group
 				label.control-label(for='divslist') Division
 				.controls
 					select#optslist(name='country')
 						each item in divions
-							option(selected=item.name == user.country)= item.name
+							option(selected=item.name == user.division)= item.name
 
 			
 			// Dept and Division user is admin to to //
@@ -44,13 +44,13 @@ input(type='hidden', value= user._id)#userId
 				.controls
 					select#optslist(name='country')
 						each item in countries
-							option(selected=item.name == user.country)= item.name
+							option(selected=item.name == user.dpt_mgr)= item.name
 			#division_admin.control-group
 				label.control-label(for='optslist') Division Manager
 				.controls
 					select#optslist(name='country')
 						each item in countries
-							option(selected=item.name == user.country)= item.name
+							option(selected=item.name == user.dvs_mgr)= item.name
 
 			hr
 			p#sub2.subheading
