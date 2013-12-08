@@ -23,14 +23,14 @@ input(type='hidden', value= user._id)#userId
 
 			
 			#dept.control-group
-				label.control-label(for='optslist') Dept. Manager
+				label.control-label(for='optslist') Deptartment
 				.controls
 					select#optslist(name='country')
 						each item in depts
 							option(selected=item.name == user.country)= item.name
 			
 			#division.control-group
-				label.control-label(for='divslist') Division Manager
+				label.control-label(for='divslist') Division
 				.controls
 					select#optslist(name='country')
 						each item in divions
