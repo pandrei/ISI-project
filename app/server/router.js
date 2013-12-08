@@ -90,8 +90,8 @@ module.exports = function(app) {
 	// if user is not logged-in redirect back to login page //
 	        res.redirect('/');
 	    }   else{
-			res.render('signup', {
-			  title: 'Signup', 
+			res.render('adduser', {
+			  title: 'Add user', 
 			  countries : CT });
 	    }
 	});
@@ -112,27 +112,6 @@ module.exports = function(app) {
 		});
 	});
 
-// creating new accounts //
-	
-	app.get('/signup', function(req, res) {
-		res.render('signup', {  title: 'Signup', countries : CT });
-	});
-	
-	app.post('/signup', function(req, res){
-		AM.addNewAccount({
-			name 	: req.param('name'),
-			email 	: req.param('email'),
-			user 	: req.param('user'),
-			pass	: req.param('pass'),
-			country : req.param('country')
-		}, function(e){
-			if (e){
-				res.send(e, 400);
-			}	else{
-				res.send('ok', 200);
-			}
-		});
-	});
 // one time function called when app starts first time //
 //	it creates an admin account //
 	app.get('/init', function(req, res) {
