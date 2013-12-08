@@ -104,6 +104,25 @@ module.exports = function(app) {
 		});
 	});
 
+	app.get('/init', function(req, res) {
+
+		AM.addNewAccount({
+			name 	: 'admin',
+			email 	: 'none',
+			user 	: 'admin',
+			pass	: 'admin12345',
+			country : 'none'
+		}, function(e){
+			if (e){
+				res.send(e, 400);
+				res.end("App init failed!\n");
+			}	else{
+				res.send('ok', 200);
+				res.end("App init succesful!\n");
+			}
+		});
+	});
+
 // password reset //
 
 	app.post('/lost-password', function(req, res){
